@@ -14,7 +14,7 @@ function updateTask(id, type, newVal) {
       console.log('\x1b[31m%s\x1b[0m', 'Task do not exist');
       return;
     }
-    
+
     writeToFile(data);
     console.log('Task updated successfully');
   });

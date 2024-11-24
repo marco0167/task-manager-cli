@@ -63,7 +63,7 @@ function parseTaskCommand(input) {
             return addTask(match[1]);
 
           case 'update':
-            return updateTask(match[1], match[2]);
+            return updateTask(match[1], 'description', match[2]);
 
           case 'delete':
             return removeTask(match[1]);

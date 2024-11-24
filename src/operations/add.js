@@ -2,8 +2,7 @@ const fs = require('fs');
 
 const { findDescription, getAllTasks, wrongFormatMessage, writeToFile } = require('../utlis');
 
-function addTask(answer) {
-  const description = findDescription(answer);
+function addTask(description) {
   if (!description) {
     wrongFormatMessage('add "<description>"');
     return;
