@@ -2,6 +2,7 @@ const readline = require('readline');
 
 const { addTask } = require('./operations/add');
 const { listTasks } = require('./operations/list');
+const { updateTask } = require('./operations/update');
 
 function help() {
   console.log(`
