@@ -2,7 +2,6 @@ const readline = require('readline');
 
 const { addTask } = require('./operations/add');
 const { listTasks } = require('./operations/list');
-const { getTextBeforeQuote } = require('./utlis');
 
 function help() {
   console.log(`
@@ -20,8 +19,6 @@ function help() {
   - list in-progress
   `)
 }
-
-
 
 function parseTaskCommand(input) {
   // Define regex patterns for each command type
@@ -93,8 +90,6 @@ function parseTaskCommand(input) {
 
   return  processCommand(input);
 }
-
-
 
 const  rl = readline.createInterface({
   input: process.stdin,

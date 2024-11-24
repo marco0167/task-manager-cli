@@ -18,17 +18,6 @@ function findDescription(text) {
   return description;
 }
 
-function getTextBeforeQuote(text) {
-  // This regex captures all text before the first double quote
-  // ^         - start of string
-  // ([^"]+)   - capture one or more characters that are not a quote
-  // "         - matches the quote
-  const regex = /^([^"]+)"/;
-
-  const match = text.match(regex);
-  return match ? match[1] : text;
-}
-
 function getAllTasks(callback) {
   fs.readFile(taskFilePath, 'utf-8', (err, data) => {
     const emptyData = {
@@ -61,4 +50,4 @@ function wrongFormatMessage(correctFormat  ) {
   console.log('Please use the format:', '\x1b[32m', correctFormat, '\x1b[0m\n');
 }
 
-module.exports = { findDescription, getAllTasks, wrongFormatMessage, getTextBeforeQuote };
+module.exports = { findDescription, getAllTasks, wrongFormatMessage };
