@@ -1,6 +1,6 @@
 const fs = require('fs');
 
-const { findDescription, getAllTasks, wrongFormatMessage } = require('../utlis');
+const { findDescription, getAllTasks, wrongFormatMessage, writeToFile } = require('../utlis');
 
 function addTask(answer) {
   const description = findDescription(answer);
@@ -24,15 +24,7 @@ function addTask(answer) {
     data.lastIndex = newIndex;
 
     // convert JSON object to a string
-    const newData = JSON.stringify(data)
-
-    // write JSON string to a file
-    fs.writeFile(taskFilePath, newData, err => {
-      if (err) {
-        throw err
-      }
-      console.log('JSON data is saved.\n')
-    })
+    writeToFile(data);
   });
 }
 

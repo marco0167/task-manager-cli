@@ -45,9 +45,22 @@ function getAllTasks(callback) {
   });
 }
 
+function writeToFile(data) {
+  fs.writeFile(
+    taskFilePath,
+    JSON.stringify(data),
+    (err) => {
+      if (err) {
+        throw err
+      }
+      console.log('JSON data is saved.\n')
+    }
+  )
+}
+
 function wrongFormatMessage(correctFormat  ) {
   console.log('\x1b[31m%s\x1b[0m','\nWrong format!');
   console.log('Please use the format:', '\x1b[32m', correctFormat, '\x1b[0m\n');
 }
 
-module.exports = { findDescription, getAllTasks, wrongFormatMessage };
+module.exports = { findDescription, getAllTasks, wrongFormatMessage, writeToFile };
