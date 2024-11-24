@@ -3,6 +3,7 @@ const readline = require('readline');
 const { addTask } = require('./operations/add');
 const { listTasks } = require('./operations/list');
 const { updateTask } = require('./operations/update');
+const { removeTask } = require('./operations/remove');
 
 function help() {
   console.log(`
@@ -65,7 +66,7 @@ function parseTaskCommand(input) {
             return updateTask(match[1], match[2]);
 
           case 'delete':
-            return deleteTask(match[1]);
+            return removeTask(match[1]);
 
           case 'markInProgress':
             return updateTask(match[1], 'status', 'in-progress');
