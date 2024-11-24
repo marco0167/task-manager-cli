@@ -68,10 +68,10 @@ function parseTaskCommand(input) {
             return deleteTask(match[1]);
 
           case 'markInProgress':
-            return markInProgress(match[1]);
+            return updateTask(match[1], 'status', 'in-progress');
 
           case 'markDone':
-            return markDone(match[1]);
+            return updateTask(match[1], 'status', 'done');
 
           case 'list':
             return listTasks(match[2] || 'all');

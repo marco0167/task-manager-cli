@@ -1,21 +1,20 @@
 const { writeToFile, getAllTasks } = require("../utlis");
 
-function updateTask(id, description) {
+function updateTask(id, type, newVal) {
   getAllTasks((data) => {
-    const tasks = data.tasks.filter(task => {
+    let idExist = false;
+    data.tasks.filter(task => {
       if (task.id == id) {
-        task.description = description;
+        task[type] = newVal;
+        idExist = true;
       }
-      return task;
     });
 
-    if (tasks == data.tasks) {
+    if (!idExist) {
       console.log('\x1b[31m%s\x1b[0m', 'Task do not exist');
       return;
     }
-
-    data.tasks = tasks;
-
+    
     writeToFile(data);
     console.log('Task updated successfully');
   });
