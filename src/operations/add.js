@@ -1,5 +1,3 @@
-const fs = require('fs');
-
 const { getAllTasks, wrongFormatMessage, writeToFile } = require('../utlis');
 
 function addTask(description) {

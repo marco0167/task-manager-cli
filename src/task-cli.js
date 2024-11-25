@@ -4,7 +4,6 @@ const { addTask } = require('./operations/add');
 const { listTasks } = require('./operations/list');
 const { updateTask } = require('./operations/update');
 const { removeTask } = require('./operations/remove');
-const { time } = require('console');
 
 function help() {
   console.log(`
