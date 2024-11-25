@@ -4,6 +4,7 @@ const { addTask } = require('./operations/add');
 const { listTasks } = require('./operations/list');
 const { updateTask } = require('./operations/update');
 const { removeTask } = require('./operations/remove');
+const { time } = require('console');
 
 function help() {
   console.log(`
@@ -98,9 +99,7 @@ const  rl = readline.createInterface({
   output: process.stdout,
 });
 
- rl.question('Do an operation: ', function (answer) {
+ rl.question('Type "help" to see the available operations or type an operation: ', function (answer) {
   parseTaskCommand(answer);
-  // console.log('Answer: ' + answer);
-  // console.log('interface closed');
-   rl.close();
+  rl.close();
 })

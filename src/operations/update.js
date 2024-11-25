@@ -6,6 +6,7 @@ function updateTask(id, type, newVal) {
     data.tasks.filter(task => {
       if (task.id == id) {
         task[type] = newVal;
+        task.updatedAt = new Date().toLocaleString();
         idExist = true;
       }
     });

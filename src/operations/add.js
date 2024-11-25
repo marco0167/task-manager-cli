@@ -1,6 +1,6 @@
 const fs = require('fs');
 
-const { findDescription, getAllTasks, wrongFormatMessage, writeToFile } = require('../utlis');
+const { getAllTasks, wrongFormatMessage, writeToFile } = require('../utlis');
 
 function addTask(description) {
   if (!description) {
@@ -11,12 +11,13 @@ function addTask(description) {
   // Get all tasks and add a new task to the list
   getAllTasks((data) => {
     const newIndex = data.lastIndex + 1;
+    const createdAt = new Date().toLocaleString();
     const newTask = {
       id: newIndex,
       description: description,
       status: 'todo',
-      createdAt: '',
-      updatedAt: ''
+      createdAt: createdAt,
+      updatedAt: createdAt
     }
 
     data.tasks.push(newTask)
