@@ -1,9 +1,9 @@
-const readline = require('readline');
+const { addTask } = require('./src/operations/add');
+const { listTasks } = require('./src/operations/list');
+const { updateTask } = require('./src/operations/update');
+const { removeTask } = require('./src/operations/remove');
 
-const { addTask } = require('./operations/add');
-const { listTasks } = require('./operations/list');
-const { updateTask } = require('./operations/update');
-const { removeTask } = require('./operations/remove');
+const params = process.argv;
 
 function help() {
   console.log(`
@@ -93,12 +93,8 @@ function parseTaskCommand(input) {
   return  processCommand(input);
 }
 
-const  rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout,
-});
-
- rl.question('Type "help" to see the available operations or type an operation: ', function (answer) {
-  parseTaskCommand(answer);
-  rl.close();
-})
+if (params.length > 2) {
+  parseTaskCommand(params[2]);
+} else {
+  help();
+}
